@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		FE955A5F1AB8540F007E8E9D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE955A5E1AB8540F007E8E9D /* main.cpp */; };
+		FE955A681AB86209007E8E9D /* UAudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE955A661AB86209007E8E9D /* UAudio.cpp */; };
+		FE955A6B1AB8622D007E8E9D /* AudioChain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE955A691AB8622D007E8E9D /* AudioChain.cpp */; };
+		FE955A6E1AB8654B007E8E9D /* AudioProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE955A6C1AB8654B007E8E9D /* AudioProcessor.cpp */; };
+		FE955A701AB8692C007E8E9D /* libportaudio.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FE955A6F1AB8692C007E8E9D /* libportaudio.dylib */; };
+		FE955A731AB86A5E007E8E9D /* UASaw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE955A711AB86A5E007E8E9D /* UASaw.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +30,15 @@
 /* Begin PBXFileReference section */
 		FE955A5B1AB8540F007E8E9D /* AudioLR */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AudioLR; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE955A5E1AB8540F007E8E9D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		FE955A661AB86209007E8E9D /* UAudio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UAudio.cpp; path = UAudio/UAudio.cpp; sourceTree = "<group>"; };
+		FE955A671AB86209007E8E9D /* UAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UAudio.h; path = UAudio/UAudio.h; sourceTree = "<group>"; };
+		FE955A691AB8622D007E8E9D /* AudioChain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioChain.cpp; sourceTree = "<group>"; };
+		FE955A6A1AB8622D007E8E9D /* AudioChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioChain.h; sourceTree = "<group>"; };
+		FE955A6C1AB8654B007E8E9D /* AudioProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioProcessor.cpp; sourceTree = "<group>"; };
+		FE955A6D1AB8654B007E8E9D /* AudioProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioProcessor.h; sourceTree = "<group>"; };
+		FE955A6F1AB8692C007E8E9D /* libportaudio.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libportaudio.dylib; path = ../../../../opt/local/lib/libportaudio.dylib; sourceTree = "<group>"; };
+		FE955A711AB86A5E007E8E9D /* UASaw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UASaw.cpp; path = UAudio/UASaw.cpp; sourceTree = "<group>"; };
+		FE955A721AB86A5E007E8E9D /* UASaw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UASaw.h; path = UAudio/UASaw.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE955A701AB8692C007E8E9D /* libportaudio.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +58,7 @@
 			children = (
 				FE955A5D1AB8540F007E8E9D /* AudioLR */,
 				FE955A5C1AB8540F007E8E9D /* Products */,
+				FE955A6F1AB8692C007E8E9D /* libportaudio.dylib */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +73,25 @@
 		FE955A5D1AB8540F007E8E9D /* AudioLR */ = {
 			isa = PBXGroup;
 			children = (
+				FE955A651AB861AC007E8E9D /* UAudio */,
 				FE955A5E1AB8540F007E8E9D /* main.cpp */,
+				FE955A691AB8622D007E8E9D /* AudioChain.cpp */,
+				FE955A6A1AB8622D007E8E9D /* AudioChain.h */,
+				FE955A6C1AB8654B007E8E9D /* AudioProcessor.cpp */,
+				FE955A6D1AB8654B007E8E9D /* AudioProcessor.h */,
 			);
 			path = AudioLR;
+			sourceTree = "<group>";
+		};
+		FE955A651AB861AC007E8E9D /* UAudio */ = {
+			isa = PBXGroup;
+			children = (
+				FE955A661AB86209007E8E9D /* UAudio.cpp */,
+				FE955A671AB86209007E8E9D /* UAudio.h */,
+				FE955A711AB86A5E007E8E9D /* UASaw.cpp */,
+				FE955A721AB86A5E007E8E9D /* UASaw.h */,
+			);
+			name = UAudio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +150,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE955A681AB86209007E8E9D /* UAudio.cpp in Sources */,
+				FE955A731AB86A5E007E8E9D /* UASaw.cpp in Sources */,
+				FE955A6E1AB8654B007E8E9D /* AudioProcessor.cpp in Sources */,
 				FE955A5F1AB8540F007E8E9D /* main.cpp in Sources */,
+				FE955A6B1AB8622D007E8E9D /* AudioChain.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,14 +238,24 @@
 		FE955A631AB8540F007E8E9D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/local/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = /opt/local/include/;
 			};
 			name = Debug;
 		};
 		FE955A641AB8540F007E8E9D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/local/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = /opt/local/include/;
 			};
 			name = Release;
 		};
@@ -232,6 +278,7 @@
 				FE955A641AB8540F007E8E9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
