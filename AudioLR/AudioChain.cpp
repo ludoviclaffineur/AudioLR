@@ -19,7 +19,6 @@ void AudioChain::process(){
 }
 
 void AudioChain::setOutput(float* output){
-
     mBlocs[mBlocs.size()-1]->mAudioBufferOut = output;
 }
 
