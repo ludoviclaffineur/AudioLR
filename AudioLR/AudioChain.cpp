@@ -23,6 +23,7 @@ void AudioChain::setOutput(float* output){
 }
 
 AudioChain* AudioChain::link(UAudio *newUAudio){
+    //newUAudio->mAudioBufferIn = mBlocs[mBlocs.size()-1]->mAudioBufferOut;
     mBlocs.push_back(newUAudio);
     return this;
 }

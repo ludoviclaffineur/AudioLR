@@ -20,6 +20,12 @@ public:
     void stop();
     void addChain(AudioChain* chain);
     AudioChain* mAudioChain;
+
+    static int AudioCallback( const void *inputBuffer, void *outputBuffer,
+                       unsigned long framesPerBuffer,
+                       const PaStreamCallbackTimeInfo* timeInfo,
+                       PaStreamCallbackFlags statusFlags,
+                       void *userData );
 };
 
 #endif /* defined(__AudioLR__AudioProcessor__) */

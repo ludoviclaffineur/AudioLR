@@ -1,29 +1,30 @@
 //
-//  UASaw.cpp
+//  UATriangle.cpp
 //  AudioLR
 //
-//  Created by Ludovic Laffineur on 17/03/15.
+//  Created by Ludovic Laffineur on 19/03/15.
 //  Copyright (c) 2015 Ludovic Laffineur. All rights reserved.
 //
 
-#include "UASaw.h"
-#include <iostream>
-UASaw::UASaw(float freq, int bufferSize){
+#include "UATriangle.h"
+
+
+UATriangle::UATriangle(float freq, int bufferSize){
     mFrequency = freq;
     mBufferSize = bufferSize;
     mAudioBufferOut = new float[bufferSize];
     mCursor = 0;
+    mIncrement = 1;
 }
-
-void UASaw::process(){
+void UATriangle::process(){
     for (int i =0; i<mBufferSize; i++) {
 
         *mAudioBufferOut++ = ((float)(mCursor)*0.01f)-1.0;
         *mAudioBufferOut++ = ((float)(mCursor)*0.01f)-1.0;
-        mCursor++;
+        mCursor+=mIncrement;
 
-        if (mCursor >= 200) {
-            mCursor= 0;
+        if (mCursor >= 200|| mCursor <= -200) {
+            mIncrement*= -1;
         }
     }
 }

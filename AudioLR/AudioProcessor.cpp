@@ -10,19 +10,11 @@
 
 #define SAMPLE_RATE   (44100)
 
-int patestCallback( const void *inputBuffer, void *outputBuffer,
-                   unsigned long framesPerBuffer,
-                   const PaStreamCallbackTimeInfo* timeInfo,
-                   PaStreamCallbackFlags statusFlags,
-                   void *userData );
-
 
 
 AudioProcessor::AudioProcessor(){
-
-
     /* Open an audio I/O stream. */
-    }
+}
 
 void AudioProcessor::play(){
 
@@ -37,7 +29,7 @@ void AudioProcessor::play(){
                                paFloat32,  /* 32 bit floating point output */
                                SAMPLE_RATE,
                                256,        /* frames per buffer */
-                               patestCallback,
+                               AudioCallback,
                                this );
 
     err = Pa_StartStream( stream );
@@ -54,7 +46,7 @@ void AudioProcessor::addChain(AudioChain* chain){
     mAudioChain = chain;
 }
 
-int patestCallback( const void *inputBuffer, void *outputBuffer,
+int AudioProcessor::AudioCallback( const void *inputBuffer, void *outputBuffer,
                    unsigned long framesPerBuffer,
                    const PaStreamCallbackTimeInfo* timeInfo,
                    PaStreamCallbackFlags statusFlags,
@@ -62,13 +54,11 @@ int patestCallback( const void *inputBuffer, void *outputBuffer,
 {
 
     AudioProcessor* AP = (AudioProcessor*) userData;
-
     float* out =(float*) outputBuffer;
     AP->mAudioChain->setOutput(out);
     AP->mAudioChain->process();
-    
-
     return 0;
+    
 }
 
 

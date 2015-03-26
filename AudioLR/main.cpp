@@ -10,6 +10,8 @@
 #include "AudioChain.h"
 #include "AudioProcessor.h"
 #include "UASaw.h"
+#include "UATriangle.h"
+#include "UASquare.h"
 
 int main(int argc, const char * argv[]) {
     // insert code here...
@@ -19,8 +21,10 @@ int main(int argc, const char * argv[]) {
 
     
     UASaw* SawSynth = new UASaw(4000, 256);
+    UATriangle* TriangleSynth = new UATriangle(4000, 256);
+    UASquare* SquareSynth = new UASquare(4000,256);
 
-    myChain->link(SawSynth);
+    myChain->link(SquareSynth);
 
     AudioProcessor* myAudioProcessor = new AudioProcessor();
     myAudioProcessor->addChain(myChain);
